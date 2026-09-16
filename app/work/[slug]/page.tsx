@@ -66,7 +66,7 @@ export default async function WorkPage({ params }: Params) {
       {/* 커버 — 실제 스크린샷/영상이 생기면 이 블록을 <Image>나 <video>로 교체하세요 */}
       <div className="container-x mt-14">
         <div
-          className={`noise relative aspect-[16/9] overflow-hidden rounded-3xl border border-[var(--color-line)] bg-gradient-to-br ${project.accent}`}
+          className={`card noise relative aspect-[16/9] overflow-hidden rounded-3xl bg-gradient-to-br ${project.accent}`}
         >
           <div className="absolute inset-0 grid place-items-center">
             <p className="font-[family-name:var(--font-mono)] text-xs text-[var(--color-faint)]">
@@ -119,7 +119,7 @@ export default async function WorkPage({ params }: Params) {
 
         <Reveal as="section">
           <h2 className="eyebrow">결과</h2>
-          <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-3">
+          <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] shadow-[var(--shadow-card)] sm:grid-cols-3">
             {project.results.map((r) => (
               <div key={r.label} className="bg-[var(--color-surface)] px-6 py-7">
                 <dd className="font-[family-name:var(--font-display)] text-3xl tracking-tight">

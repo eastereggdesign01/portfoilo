@@ -5,15 +5,15 @@ import { useEffect, useState } from "react";
 type Theme = "dark" | "light";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     const current = document.documentElement.dataset.theme;
-    setTheme(current === "light" ? "light" : "dark");
+    setTheme(current === "dark" ? "dark" : "light");
   }, []);
 
   function toggle() {
-    const next: Theme = theme === "dark" ? "light" : "dark";
+    const next: Theme = theme === "light" ? "dark" : "light";
     setTheme(next);
     document.documentElement.dataset.theme = next;
     try {

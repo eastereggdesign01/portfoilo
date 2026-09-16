@@ -54,7 +54,7 @@ export function Playground() {
       <Reveal>
         <div className="grid gap-5 lg:grid-cols-[minmax(0,20rem)_1fr]">
           {/* 컨트롤 */}
-          <div className="rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] p-6">
+          <div className="card rounded-3xl p-6">
             <div className="space-y-6">
               {controls.map((c) => (
                 <div key={c.key}>
@@ -101,11 +101,11 @@ export function Playground() {
 
           {/* 라이브 미리보기 */}
           <div
-            className="noise relative grid place-items-center overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] p-8"
+            className="card noise relative grid place-items-center overflow-hidden rounded-3xl p-8"
             style={{ backgroundImage: `radial-gradient(60rem 24rem at 50% -20%, ${accentSoft}, transparent)` }}
           >
             <div
-              className="relative w-full max-w-sm border border-[var(--color-line)] bg-[var(--color-bg)]"
+              className="relative w-full max-w-sm border border-[var(--color-line)] bg-[var(--color-bg)] shadow-[var(--shadow-card-hover)]"
               style={{
                 borderRadius: values.radius + 6,
                 padding: values.density + 8,

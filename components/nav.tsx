@@ -34,7 +34,7 @@ export function Nav() {
       <nav
         className={`flex w-full max-w-3xl items-center gap-2 rounded-full border px-2.5 py-2 transition-all duration-300 ${
           scrolled
-            ? "glass border-[var(--color-line)] shadow-[0_8px_32px_rgba(0,0,0,0.28)]"
+            ? "glass border-[var(--color-line)] shadow-[var(--shadow-nav)]"
             : "border-transparent bg-transparent"
         }`}
       >

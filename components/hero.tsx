@@ -19,11 +19,7 @@ export function Hero() {
       {/* 배경 그라디언트 blob — 색을 아껴 쓰되 깊이를 만듭니다 */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[38rem] w-[62rem] -translate-x-1/2 rounded-full opacity-60 blur-[120px]"
-        style={{
-          background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--color-accent) 42%, transparent), transparent)",
-        }}
+        className="blob -top-40 left-1/2 -z-10 h-[38rem] w-[62rem] -translate-x-1/2"
       />
 
       <div className="container-x">
@@ -75,7 +71,7 @@ export function Hero() {
         {/* 숫자는 형용사 열 개보다 강합니다 */}
         <motion.dl
           {...rise(site.headline.length + 3)}
-          className="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] sm:grid-cols-3"
+          className="mt-20 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)] shadow-[var(--shadow-card)] sm:grid-cols-3"
         >
           {stats.map((stat) => (
             <div key={stat.label} className="bg-[var(--color-surface)] px-6 py-7">

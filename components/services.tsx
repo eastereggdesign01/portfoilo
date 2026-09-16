@@ -10,7 +10,7 @@ export function Services() {
       title="무엇을 어디까지 하는지."
       lead="기술 스택을 아이콘으로 나열하는 대신, 맡길 수 있는 일의 범위와 기간을 적었습니다. 견적을 가늠하시는 데 쓰세요."
     >
-      <ul className="grid gap-px overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-3">
+      <ul className="grid gap-px overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[var(--color-line)] shadow-[var(--shadow-card)] md:grid-cols-3">
         {services.map((service, i) => (
           <Reveal as="li" key={service.title} delay={i * 0.08}>
             <div className="flex h-full flex-col bg-[var(--color-surface)] p-7 md:p-8">
@@ -40,7 +40,7 @@ export function Services() {
 
       {/* 진행 방식 — 프리랜스 문의에서 가장 자주 나오는 불안을 미리 해소합니다 */}
       <Reveal className="mt-5">
-        <div className="rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] p-7 md:p-9">
+        <div className="card rounded-3xl p-7 md:p-9">
           <p className="eyebrow">How we work</p>
           <ol className="mt-7 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p) => (

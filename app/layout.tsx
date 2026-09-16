@@ -25,17 +25,17 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#08080a" },
-    { media: "(prefers-color-scheme: light)", color: "#fbfbfc" },
   ],
 };
 
 // 저장된 테마를 페인트 전에 적용해 깜빡임을 막습니다.
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}})()`;
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}})()`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" data-theme="dark" suppressHydrationWarning>
+    <html lang="ko" data-theme="light" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {/* JS가 꺼져 있거나 로드에 실패해도 본문이 빈 칸으로 남지 않게 합니다 */}

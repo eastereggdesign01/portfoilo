@@ -9,7 +9,7 @@ export function Faq() {
       title="문의 전에 궁금하실 것들."
       lead="메일로 가장 자주 받는 질문을 미리 적어뒀습니다. 여기 없는 건 편하게 물어보세요."
     >
-      <div className="mx-auto max-w-3xl divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
+      <div className="max-w-3xl divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
         {faqs.map((faq, i) => (
           <Reveal key={faq.q} delay={i * 0.05}>
             {/* 네이티브 details — JS 없이 동작하고 스크린 리더에서도 정확합니다 */}

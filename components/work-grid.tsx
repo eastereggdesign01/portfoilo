@@ -22,11 +22,11 @@ export function WorkGrid() {
           >
             <Link
               href={`/work/${project.slug}`}
-              className="group relative block h-full overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[var(--color-surface)] p-7 transition-all duration-500 hover:border-[color-mix(in_oklab,var(--color-accent)_45%,transparent)] md:p-9"
+              className="card card-hover group relative block h-full overflow-hidden rounded-3xl p-7 md:p-9"
             >
               <div
                 aria-hidden
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-br opacity-70 transition-opacity duration-500 group-hover:opacity-100 ${project.accent}`}
+                className={`pointer-events-none absolute inset-0 bg-gradient-to-br opacity-45 transition-opacity duration-500 group-hover:opacity-75 dark:opacity-70 dark:group-hover:opacity-100 ${project.accent}`}
               />
 
               <div className="relative flex h-full flex-col">

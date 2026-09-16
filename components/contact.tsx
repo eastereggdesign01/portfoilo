@@ -25,11 +25,7 @@ export function Contact() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-52 left-1/2 -z-10 h-[34rem] w-[56rem] -translate-x-1/2 rounded-full opacity-55 blur-[130px]"
-        style={{
-          background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--color-accent) 45%, transparent), transparent)",
-        }}
+        className="blob -bottom-52 left-1/2 -z-10 h-[34rem] w-[56rem] -translate-x-1/2"
       />
 
       <div className="container-x text-center">
