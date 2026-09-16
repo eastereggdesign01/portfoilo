@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────
+   토큰. 다크가 기본, [data-theme="light"]로 라이트 전환.
+   액센트는 딱 하나만 씁니다 — 색을 아끼는 게 고급스러움의 핵심.
+   ────────────────────────────────────────────────────────── */
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Instrument Sans", var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  --color-bg: #08080a;
+  --color-surface: #0f0f12;
+  --color-raised: #16161a;
+  --color-line: #24242a;
+  --color-fg: #f4f4f5;
+  --color-muted: #9a9aa5;
+  --color-faint: #63636d;
+  --color-accent: #6d5efc;
+  --color-accent-soft: #a89bff;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme="light"] {
+  --color-bg: #fbfbfc;
+  --color-surface: #ffffff;
+  --color-raised: #f4f4f6;
+  --color-line: #e5e5ea;
+  --color-fg: #0c0c0f;
+  --color-muted: #63636d;
+  --color-faint: #9a9aa5;
+  --color-accent: #5847f0;
+  --color-accent-soft: #3d2fd0;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* 앵커 이동 시 플로팅 네비에 가려지지 않게 */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    /* 한글은 어절 단위로 줄바꿈해야 합니다. 없으면 "핸드오/프"처럼 단어가 잘립니다. */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* 초대형 디스플레이 타이포 — 뷰포트에 따라 매끄럽게 */
+  .text-display {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 9vw, 7.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  /* 히어로보다 한 단계 작은 대형 타이포 — CTA 헤드라인용 */
+  .text-display-md {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  .text-section {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4.5vw, 3.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  /* 섹션 상단의 작은 라벨 */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+
+  /* 유리질 표면 */
+  .glass {
+    background-color: color-mix(in oklab, var(--color-surface) 72%, transparent);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+
+  /* 미세 노이즈 — Framer 특유의 질감 */
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container-x {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2.5rem;
+    }
+  }
+}
+
+/* 접근성: 모션을 줄이라는 설정이면 전부 끕니다.
+   이걸 지키는 것 자체가 디자인 엔지니어의 실력 증명입니다. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
